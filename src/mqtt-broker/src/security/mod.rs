@@ -109,8 +109,8 @@ impl AuthDriver {
         let username = user_info.username.clone();
         if let Some(_user) = self.cache_manager.user_info.get(&username) {
             return Err(CommonError::CommmonError(
-                                "user has beed existed".to_string(),
-                            ));
+                "user has beed existed".to_string(),
+            ));
         };
         self.cache_manager.add_user(user_info.clone());
         self.driver.save_user(user_info).await
